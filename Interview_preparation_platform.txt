@@ -124,3 +124,115 @@ Closes menu"
 
 
 
+7. CarCards.jsx,FeatureSection.jsx,Title.jsx => Cards of cars is show in Home.jsx => FeactureSection.jsx Imported
+
+	"""" 🔗 1. Overall Flow (Big Picture)
+FeatureSection  →  CarCards  →  Navigation (React Router)
+        ↓
+      Title (UI component)
+FeatureSection → Parent component (controls data + layout)
+CarCards → Child component (displays each car)
+Title → Reusable UI component (heading section)
+🧠 2. FeatureSection (Main Controller)
+✅ Purpose:
+Displays featured cars
+Passes car data to CarCards
+Handles navigation to full car listing
+🔑 Main Logic:
+dummyCarData.slice(0, 3).map((car, index) => (
+  <CarCards car={car} />
+))
+💡 What’s happening:
+dummyCarData → array of cars
+.slice(0, 3) → show only first 3 cars
+.map() → loop through cars
+Each car → passed as prop to CarCards
+🔁 Navigation:
+navigate('/cars')
+Clicking Explore all Rides → goes to /cars
+🧩 3. CarCards (Core Logic Component)
+✅ Purpose:
+Displays individual car info
+Handles click interactions
+Navigates to details & booking
+🔑 Key Functionalities
+1. 📦 Receiving Props
+const CarCards = ({ car })
+Receives single car object from parent
+2. 🖱 Card Click (Go to Details Page)
+onClick={()=>{
+  navigate(`/car-details/${car._id}`);
+  scrollTo(0,0)
+}}
+
+👉 When user clicks card:
+
+Navigates to:
+/car-details/:id
+Example:
+/car-details/123
+3. 🟡 Book Now Button (Stop Propagation)
+const handleBookNow = (e) => {
+  e.stopPropagation()
+  navigate(`/my-bookings`)
+}
+
+👉 Important:
+
+e.stopPropagation() prevents:
+Card click event from triggering
+So:
+Button → /my-bookings
+Card → /car-details/:id
+4. 💰 Dynamic Data Rendering
+{car.brand} {car.model}
+{car.pricePerDay}
+{car.category}
+{car.fuelType}
+
+👉 Everything is dynamic from backend/data
+
+5. 🟢 Conditional Rendering
+{car.isAvailable && (
+  <p>Available Now</p>
+)}
+
+👉 Shows badge only if:
+
+car.isAvailable === true
+🎨 4. Title Component (Reusable UI)
+✅ Purpose:
+Reusable heading component
+🔑 Props:
+Title({ title, subTitle, align })
+💡 Logic:
+align === "left"
+  ? "items-start text-left"
+  : "items-center text-center"
+
+👉 Controls alignment dynamically
+
+🔌 5. Data Flow (Very Important)
+dummyCarData (assets)
+        ↓
+FeatureSection
+        ↓ (props)
+CarCards
+        ↓
+UI rendering
+🌐 6. Routing Connection (React Router)
+Used Hooks:
+import { useNavigate } from 'react-router-dom'
+Routes You Must Have:
+<Route path="/cars" element={<Cars />} />
+<Route path="/car-details/:id" element={<CarDetails />} />
+<Route path="/my-bookings" element={<MyBookings />} />
+⚙️ 7. Environment Variable Usage
+const currency = import.meta.env.VITE_CURRENCY
+
+👉 Comes from .env file:
+
+VITE_CURRENCY=₹ """"
+
+
+8. make all the components and import it on Home page for home page design

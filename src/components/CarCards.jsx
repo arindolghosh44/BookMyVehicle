@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router-dom'
 
 const CarCards = ({ car }) => {
 
-  const currency = import.meta.env.VITE_CURRENCY
+  const currency = import.meta.env.VITE_CURRENCY || "₹"
   const navigate = useNavigate()
 
- 
-
+  // Handle Book Now button
   const handleBookNow = (e) => {
     e.stopPropagation()
     navigate(`/my-bookings`)
@@ -16,7 +15,10 @@ const CarCards = ({ car }) => {
 
   return (
     <div 
-      onClick={()=>{navigate(`/car-details/${car._id}`); scrollTo(0,0)}}
+      onClick={() => {
+        navigate(`/car-details/${car._id}`)
+        window.scrollTo(0, 0)
+      }}
       className='group rounded-2xl overflow-hidden shadow-xl 
       hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 cursor-pointer 
       bg-white/10 backdrop-blur-md'
@@ -31,10 +33,9 @@ const CarCards = ({ car }) => {
           className='w-full h-full object-contain p-2 group-hover:scale-110 transition duration-500'
         />
 
-    
-        {/* Availability Badge */}
-        {car.isAvailable && (
-          <p className='absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 z-0'>
+        {/* ✅ Availability Badge FIXED */}
+        {car.isAvaliable && (
+          <p className='absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded text-xs shadow'>
             Available Now
           </p>
         )}
@@ -56,7 +57,7 @@ const CarCards = ({ car }) => {
 
         {/* Info */}
         <p className='text-sm text-white/70'>
-          {car.category} • {car.fuelType} • {car.seating_capacity} seats
+          {car.category} • {car.fuel_type} • {car.seating_capacity} seats
         </p>
 
         {/* Features */}
@@ -69,7 +70,7 @@ const CarCards = ({ car }) => {
 
           <div className='flex items-center gap-2'>
             <img src={assets.fuel_icon} alt="" className='w-4 h-4'/>
-            <span>{car.fuelType}Gasoline</span>
+            <span>{car.fuel_type}</span>
           </div>
 
           <div className='flex items-center gap-2'>

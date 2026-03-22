@@ -108,7 +108,29 @@ export const dummyUserData = {
   "role": "owner",
   "image": user_profile,
 }
-
+export const dummyTestimonialData = [
+  {
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces",
+    name: "John Doe",
+    title: "Marketing Director",
+    content: "Amazing platform! It helped me earn passive income easily.",
+    rating: 4,
+  },
+  {
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces",
+    name: "Jane Smith",
+    title: "Car Owner",
+    content: "Super smooth experience. Listing my car was very easy.",
+    rating: 5,
+  },
+  {
+    image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=200&h=200&fit=crop&crop=faces",
+    name: "David Lee",
+    title: "Business Owner",
+    content: "Highly recommended! Great UI and excellent support.",
+    rating: 4,
+  },
+]
 export const dummyCarData = [
     {
         "_id": "67ff5bc069c03d4e45f30b77",

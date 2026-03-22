@@ -89,9 +89,9 @@ export const assets = {
 }
 
 export const menuLinks = [
-    { name: "Home", path: "/" },
-    { name: "Cars", path: "/cars" },
-    { name: "My Bookings", path: "/my-bookings" },
+    { name: "Main Page", path: "/" },
+    { name: "Rides", path: "/cars" },
+    { name: "My Rides", path: "/my-bookings" },
 ]
 
 export const ownerMenuLinks = [
@@ -103,7 +103,7 @@ export const ownerMenuLinks = [
 
 export const dummyUserData = {
   "_id": "6847f7cab3d8daecdb517095",
-  "name": "GreatStack",
+  "name": "Arindol Ghosh",
   "email": "admin@example.com",
   "role": "owner",
   "image": user_profile,

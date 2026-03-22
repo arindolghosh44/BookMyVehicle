@@ -1,0 +1,126 @@
+
+1. Download and install node version v20.20.1
+
+
+
+2. npm create vite@latest (on terminal)
+
+	2.1.react
+	2.2.javaScript
+
+3. cd ride (this is your project name) => npm install react-router-dom
+
+4. rafce extension=> es7 install by marketplace
+
+5. npm install tailwindcss @tailwindcss/vite
+
+##Everytime The jsx File name first later must be capital (ex:- Navbar.jsx)
+
+## from src -> index.css you can change background color
+
+## write the correct code for Navbar.jsx (optional) (Mobile view)
+
+## Navbar menuLinks takes from assets.js 
+
+## in app.jsx i use useLocation when the path is '/owner' then the Navbar not showing 
+
+
+6. Navbar descriptions => "🧠 1. Imports
+import React, { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { assets, menuLinks } from '../assets/assets'
+useState → manages mobile menu open/close
+Link → navigation without page reload
+useLocation → gives current URL (to highlight active link)
+useNavigate → navigate using button click
+assets → images/icons (like search icon)
+menuLinks → array of navbar links
+⚙️ 2. Component + State
+const Navbar = ({ setShowLogin }) => {
+  const location = useLocation()
+  const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
+}
+open → controls mobile menu (true = open)
+setShowLogin → function passed from parent (to open login popup)
+location.pathname → current page path
+🎨 3. Main Navbar Container
+<div className={`flex items-center justify-between ...`}>
+flex → horizontal layout
+justify-between → space between logo & right side
+Background changes:
+location.pathname === "/"
+
+👉 Home → gradient
+👉 Other pages → solid green
+
+🚗 4. Logo Section
+<Link to='/'>🚗 BookMyRide</Link>
+Click → go to homepage
+Uses emoji + text
+Styled with flex + spacing
+💻 5. Desktop Navbar
+<div className="hidden sm:flex ...">
+hidden sm:flex →
+❌ Hidden on mobile
+✅ Visible on tablet & desktop
+🔗 5.1 Menu Links
+menuLinks.map(...)
+Loops through links like:
+{ name: "Home", path: "/" }
+Active page:
+location.pathname === link.path
+
+👉 Highlights current page (yellow color)
+
+🔍 5.2 Search Bar
+<div className="hidden lg:flex ...">
+Hidden on small screens
+Visible only on large screens
+Contains:
+input field
+search icon
+🔘 5.3 Buttons
+Dashboard
+onClick={() => navigate('/owner')}
+
+👉 Redirects to dashboard page
+
+Login
+onClick={() => setShowLogin(true)}
+
+👉 Opens login popup
+
+📱 6. Mobile Menu Button
+<button className='sm:hidden'>☰</button>
+Visible only on mobile
+Click → setOpen(true)
+Opens menu
+📲 7. Mobile Drawer (Main Feature)
+<div className={`fixed ... ${open ? "translate-x-0" : "translate-x-full"}`}>
+Key points:
+fixed → overlays full screen
+w-full h-screen → full screen menu
+translate-x-full → hidden (right side)
+translate-x-0 → visible
+
+👉 This creates slide-in menu effect
+
+❌ 7.1 Close Button
+<button onClick={() => setOpen(false)}>✖</button>
+Closes menu"
+
+
+## in app.jsx use routes to routing => '  <Routes>
+
+        <Route path='/' element={<Home/>}/>
+         <Route path='/car-details/:id' element={<CarDetails/>}/>
+         <Route path='/cars' element={<Cars/>}/>
+          <Route path='/my-bookings' element={<Mybookings/>}/>
+    </Routes>'
+
+
+## components -> hero.jsx => 'Higher section where you accepted the car details of pickup and return'
+
+
+

@@ -34,63 +34,68 @@ const CarCards = ({ car }) => {
 
         {/* Availability Badge */}
         {car.isAvaliable && (
-          <p className='absolute top-3 left-3 bg-green-500 text-white px-3 py-1.5 rounded text-sm font-medium shadow'>
+          <p className='absolute top-3 left-3 bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400
+                        text-transparent bg-clip-text px-3 py-1.5 rounded text-sm font-medium shadow'>
             Available Now
           </p>
         )}
 
         {/* Price Tag */}
-        <div className='absolute bottom-3 right-3 bg-black/70 text-white px-4 py-2 rounded-lg text-base font-semibold'>
-          {currency}{car.pricePerDay} <span className='text-sm'>/day</span>
+        <div className='absolute bottom-3 right-3 bg-black/60 px-4 py-2 rounded-lg 
+                        font-semibold text-transparent bg-clip-text 
+                        bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400'>
+          {currency}{car.pricePerDay} <span className='text-sm text-green-200'>/day</span>
         </div>
 
       </div>
 
       {/* Details Section */}
-      <div className='p-5 flex flex-col gap-4 text-white'>
+      <div className='p-5 flex flex-col gap-4'>
 
         {/* Car Name */}
-        <h2 className='text-xl md:text-2xl font-bold leading-snug'>
+        <h2 className='text-xl md:text-2xl font-bold leading-snug
+                       bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400
+                       text-transparent bg-clip-text'>
           {car.brand} {car.model}
         </h2>
 
         {/* Info */}
-        <p className='text-base md:text-lg text-white/80'>
+        <p className='text-base md:text-lg
+                      bg-gradient-to-r from-emerald-500 via-green-400 to-teal-400
+                      text-transparent bg-clip-text'>
           {car.category} • {car.fuel_type} • {car.seating_capacity} seats
         </p>
 
         {/* Features */}
-        <div className='mt-3 grid grid-cols-2 gap-4 text-base md:text-lg text-amber-100'>
-
+        <div className='mt-3 grid grid-cols-2 gap-4 text-base md:text-lg'>
           <div className='flex items-center gap-2'>
             <img src={assets.users_icon} alt="" className='w-5 h-5'/>
-            <span>{car.seating_capacity} seats</span>
+            <span className='bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400 text-transparent bg-clip-text'>{car.seating_capacity} seats</span>
           </div>
 
           <div className='flex items-center gap-2'>
             <img src={assets.fuel_icon} alt="" className='w-5 h-5'/>
-            <span>{car.fuel_type}</span>
+            <span className='bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400 text-transparent bg-clip-text'>{car.fuel_type}</span>
           </div>
 
           <div className='flex items-center gap-2'>
             <img src={assets.car_icon} alt="" className='w-5 h-5'/>
-            <span>{car.category}</span>
+            <span className='bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400 text-transparent bg-clip-text'>{car.category}</span>
           </div>
 
           <div className='flex items-center gap-2'>
             <img src={assets.location_icon} alt="" className='w-5 h-5'/>
-            <span>{car.location}</span>
+            <span className='bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400 text-transparent bg-clip-text'>{car.location}</span>
           </div>
-
         </div>
 
         {/* Button */}
         <button 
           onClick={handleBookNow}
           className='mt-5 py-3 text-lg font-semibold rounded-xl 
-          bg-yellow-300 text-green-900 
-          hover:bg-yellow-400 hover:scale-105 active:scale-95 
-          transition-all duration-300'>
+          bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400 
+          text-transparent bg-clip-text 
+          hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-green-400'>
           Book Now
         </button>
 

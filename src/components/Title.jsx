@@ -8,13 +8,17 @@ const Title = ({ title, subTitle, align = "center" }) => {
     >
 
       {/* Main Title */}
-      <h1 className='text-3xl md:text-5xl font-bold leading-tight text-white 
+      <h1 className='text-3xl md:text-5xl font-bold leading-tight
+        bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400
+        text-transparent bg-clip-text
         transition duration-300 group-hover:scale-105'>
         {title}
       </h1>
 
       {/* Subtitle */}
-      <p className='text-sm md:text-lg text-white/70 max-w-2xl'>
+      <p className='text-sm md:text-lg max-w-2xl
+        bg-gradient-to-r from-pink-400 via-purple-500 to-blue-400
+        text-transparent bg-clip-text'>
         {subTitle}
       </p>
 

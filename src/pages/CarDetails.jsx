@@ -12,10 +12,8 @@ const CarDetails = () => {
   const today = new Date().toISOString().split("T")[0]
 
   const [form, setForm] = useState({
-    name: '',
     pickupDate: '',
-    returnDate: '',
-    location: ''
+    returnDate: ''
   })
 
   useEffect(() => {
@@ -26,10 +24,12 @@ const CarDetails = () => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
     alert("Booking Confirmed 🚗")
   }
+
+  
 
   return car ? (
     <div className='w-full min-h-screen px-8 md:px-16 lg:px-24 py-12 
@@ -121,9 +121,8 @@ const CarDetails = () => {
 
         </div>
 
-        {/* 🧾 RIGHT FORM (UNCHANGED HEIGHT) */}
+        {/* 🧾 RIGHT FORM (ONLY DATE FIELDS) */}
         <div>
-
           <form 
             onSubmit={handleSubmit}
             className='w-full 
@@ -145,30 +144,6 @@ const CarDetails = () => {
 
             {/* Inputs */}
             <div className='mt-10 space-y-7'>
-
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={form.name}
-                onChange={handleChange}
-                required
-                className='w-full p-5 text-lg rounded-xl 
-                           bg-blue-50 text-slate-900
-                           border border-blue-300'
-              />
-
-              <input
-                type="text"
-                name="location"
-                placeholder="Pickup Location"
-                value={form.location}
-                onChange={handleChange}
-                required
-                className='w-full p-5 text-lg rounded-xl 
-                           bg-blue-50 text-slate-900
-                           border border-blue-300'
-              />
 
               {/* DATE */}
               <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
@@ -223,7 +198,6 @@ const CarDetails = () => {
             </button>
 
           </form>
-
         </div>
 
       </div>

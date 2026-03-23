@@ -5,6 +5,7 @@ import Home from './pages/Home.jsx'
 import CarDetails from './pages/CarDetails.jsx'
 import Cars from './pages/Cars.jsx'
 import Mybookings from './pages/Mybookings.jsx'
+import Footer from './components/Footer.jsx'
 
 
 const App = () => {
@@ -25,6 +26,8 @@ const isOwnerPath = useLocation().pathname.startsWith('/owner')
          <Route path='/cars' element={<Cars/>}/>
           <Route path='/my-bookings' element={<Mybookings/>}/>
     </Routes>
+{!isOwnerPath &&  <Footer/>}
+   
     </>
   )
 }

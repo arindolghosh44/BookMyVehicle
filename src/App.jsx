@@ -26,6 +26,7 @@ const isOwnerPath = useLocation().pathname.startsWith('/owner')
          <Route path='/cars' element={<Cars/>}/>
           <Route path='/my-bookings' element={<Mybookings/>}/>
     </Routes>
+    
 {!isOwnerPath &&  <Footer/>}
    
     </>

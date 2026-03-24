@@ -12,35 +12,77 @@ import AddCar from './pages/Owner/AddCar.jsx'
 import ManageCars from './pages/Owner/ManageCars.jsx'
 import ManageBookings from './pages/Owner/ManageBookings.jsx'
 
-
 const App = () => {
 
-const [showLogin,setShowLogin ] = useState(false)
-const isOwnerPath = useLocation().pathname.startsWith('/owner')
+  // 🔹 State to control login popup visibility
+  // showLogin → boolean value (true = show login modal, false = hide)
+  // setShowLogin → function to update the state
+  const [showLogin, setShowLogin] = useState(false)
+
+  // 🔹 useLocation() gives current URL path
+  // Example: "/owner/add-car"
+  const location = useLocation()
+
+  // 🔹 Check if current path starts with "/owner"
+  // This helps us detect Owner Panel pages
+  const isOwnerPath = location.pathname.startsWith('/owner')
 
   return (
-    
     <>
-     
-    {!isOwnerPath && <Navbar setShowLogin={setShowLogin}/>}
+      {/* 🔹 Navbar should NOT be shown on Owner pages */}
+      {/* Example: /owner, /owner/add-car */}
+      {!isOwnerPath && <Navbar setShowLogin={setShowLogin} />}
 
-    <Routes>
+      {/* 🔹 Routes define all page navigation */}
+      <Routes>
 
-        <Route path='/' element={<Home/>}/>
-         <Route path='/car-details/:id' element={<CarDetails/>}/>
-         <Route path='/cars' element={<Cars/>}/>
-          <Route path='/my-bookings' element={<Mybookings/>}/>
-          <Route path='/owner' element={<Layout/>}>
-              <Route index element={<DashBoard/>}/>
-              <Route path='add-car' element={<AddCar/>}/>
-               <Route path='manage-car' element={<ManageCars/>}/>
-                <Route path='manage-bookings' element={<ManageBookings/>}/>
+        {/* 🔹 Home Page Route */}
+        {/* URL: "/" */}
+        <Route path='/' element={<Home />} />
 
-          </Route>
-    </Routes>
-    
-{!isOwnerPath &&  <Footer/>}
-   
+        {/* 🔹 Car Details Page */}
+        {/* Dynamic route using :id */}
+        {/* Example: /car-details/123 */}
+        <Route path='/car-details/:id' element={<CarDetails />} />
+
+        {/* 🔹 All Cars Listing Page */}
+        {/* URL: /cars */}
+        <Route path='/cars' element={<Cars />} />
+
+        {/* 🔹 User Bookings Page */}
+        {/* URL: /my-bookings */}
+        <Route path='/my-bookings' element={<Mybookings />} />
+
+        {/* 🔹 Owner Panel Routes (Nested Routing) */}
+        {/* Parent route: /owner */}
+        <Route path='/owner' element={<Layout />}>
+
+          {/* 🔹 Default page for /owner */}
+          {/* When user visits "/owner", DashBoard will load */}
+          <Route index element={<DashBoard />} />
+
+          {/* 🔹 Add Car Page */}
+          {/* URL: /owner/add-car */}
+          <Route path='add-car' element={<AddCar />} />
+
+          {/* 🔹 Manage Cars Page */}
+          {/* URL: /owner/manage-car */}
+          <Route path='manage-car' element={<ManageCars />} />
+
+          {/* 🔹 Manage Bookings Page */}
+          {/* URL: /owner/manage-bookings */}
+          <Route path='manage-bookings' element={<ManageBookings />} />
+
+        </Route>
+      </Routes>
+
+      {/* 🔹 Footer should NOT be shown on Owner pages */}
+      {!isOwnerPath && <Footer />}
+
+      {/* 🔹 (Optional) You can render Login Modal here using showLogin */}
+      {/* Example:
+          {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
+      */}
     </>
   )
 }

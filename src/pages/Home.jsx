@@ -4,7 +4,7 @@ import FeatureSection from '../components/FeatureSection'
 import Banner from '../components/Banner'
 import Testimonial from '../components/Testimonial'
 import NewsLetter from '../components/NewsLetter'
-import Footer from '../components/Footer'
+
 
 const Home = () => {
   return (

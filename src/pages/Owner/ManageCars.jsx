@@ -34,7 +34,7 @@ const ManageCars = () => {
               {/* Table Head */}
               <thead className='text-emerald-300 uppercase text-xs border-b border-emerald-500/30'>
                 <tr>
-                  <th className='px-4 py-3 md:px-6 md:py-4'>Car</th>
+                  <th className='px-4 py-3 md:px-6 md:py-4'>Rides</th>
                   <th className='px-4 py-3 md:px-6 md:py-4'>Category</th>
                   <th className='px-4 py-3 md:px-6 md:py-4'>Price</th>
                   <th className='px-4 py-3 md:px-6 md:py-4'>Status</th>

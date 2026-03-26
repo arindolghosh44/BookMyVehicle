@@ -67,7 +67,7 @@ const App = () => {
 
           {/* 🔹 Manage Cars Page */}
           {/* URL: /owner/manage-car */}
-          <Route path='manage-car' element={<ManageCars />} />
+          <Route path='manage-cars' element={<ManageCars />} />
 
           {/* 🔹 Manage Bookings Page */}
           {/* URL: /owner/manage-bookings */}
